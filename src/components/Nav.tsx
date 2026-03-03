@@ -34,26 +34,28 @@ export default function Nav() {
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
   return (
-    <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
-      <div className="nav-inner container">
-        <a href="#hero" className="nav-logo">MA</a>
+    <>
+      <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
+        <div className="nav-inner container">
+          <a href="#hero" className="nav-logo">MA</a>
 
-        <div className="nav-links">
-          {sections.map(s => (
-            <a key={s} href={`#${s}`} className={`nav-link${activeSection === s ? ' active' : ''}`}>
-              {capitalize(s)}
-            </a>
-          ))}
+          <div className="nav-links">
+            {sections.map(s => (
+              <a key={s} href={`#${s}`} className={`nav-link${activeSection === s ? ' active' : ''}`}>
+                {capitalize(s)}
+              </a>
+            ))}
+          </div>
+
+          <button
+            className={`nav-toggle${mobileOpen ? ' open' : ''}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            <span /><span />
+          </button>
         </div>
-
-        <button
-          className={`nav-toggle${mobileOpen ? ' open' : ''}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          <span /><span />
-        </button>
-      </div>
+      </nav>
 
       <div className={`nav-mobile${mobileOpen ? ' open' : ''}`}>
         {sections.map(s => (
@@ -62,6 +64,6 @@ export default function Nav() {
           </a>
         ))}
       </div>
-    </nav>
+    </>
   );
 }

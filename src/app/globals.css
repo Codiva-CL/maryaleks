@@ -114,6 +114,7 @@ button {
 .section {
   padding: var(--space-section) 0;
   position: relative;
+  scroll-margin-top: 80px;
 }
 
 .section-label {
@@ -269,7 +270,8 @@ button {
   flex-direction: column;
   gap: 6px;
   padding: 8px;
-  z-index: 101;
+  z-index: 200;
+  position: relative;
 }
 
 .nav-toggle span {
