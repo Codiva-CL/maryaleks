@@ -1,0 +1,34 @@
+# Marina Alekseeva — Front-End Developer
+
+> Front-End Developer with 4+ years of experience in React, Next.js, Angular, Vue, and TypeScript. Based in Santiago, Chile. Open to work.
+
+## About
+
+Marina Alekseeva is a front-end developer with deep expertise in the JavaScript ecosystem. She has professional experience building healthcare platforms, education tools with AI-powered learning, and pet health management apps. She speaks Russian (native), English (C2 Advanced), and Spanish (A2).
+
+## Technical Skills
+
+- Frameworks: React, Next.js, Angular, Vue, Svelte, Astro, Redux, Express
+- Languages: JavaScript, TypeScript, Go, HTML, CSS, Dart
+- Testing: Jest, Playwright, React Testing Library, Enzyme
+- Infrastructure: Docker, AWS Lambda, Supabase, Redis, Git, Linux, Bash
+- Concepts: OAuth2, OpenID, Functional Programming, SEO, Design Systems, i18n
+
+## Work Experience
+
+- ZooMinder (Dec 2025–Present): Co-Founder & Front-End Developer — Pet health management app with Flutter
+- Previsible (Jun–Oct 2025): Web SEO Developer — Full-stack education platform with AI-powered learning tools
+- Portavita Health (2023–2024): Front-end Developer — Healthcare MVP development
+- Portavita LLC (2022–2023): Front-end Developer & Functional Tester — QA to development transition
+
+## Contact
+
+- Email: marinaaleksdev@gmail.com
+- LinkedIn: https://www.linkedin.com/in/marina-alekseeva-a190591b5/
+- GitHub: https://github.com/KorryKo
+- Telegram: https://t.me/KorryKo
+- Phone: +56 957 776 767
+
+## Links
+
+- [Portfolio](https://maryaleks.dev): Full portfolio with experience, projects, and skills

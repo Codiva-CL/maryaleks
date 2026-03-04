@@ -6,6 +6,7 @@ const ArrowIcon = () => (
 
 const links = [
   { label: 'Email', value: 'marinaaleksdev@gmail.com', href: 'mailto:marinaaleksdev@gmail.com' },
+  { label: 'LinkedIn', value: 'Marina Alekseeva', href: 'https://www.linkedin.com/in/marina-alekseeva-a190591b5/', external: true },
   { label: 'Telegram', value: '@KorryKo', href: 'https://t.me/KorryKo', external: true },
   { label: 'Github', value: 'KorryKo', href: 'https://github.com/KorryKo', external: true },
   { label: 'Phone', value: '+56 957 776 767', href: 'tel:+56957776767' },
