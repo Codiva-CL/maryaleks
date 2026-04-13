@@ -1,4 +1,6 @@
-const experiences = [
+import type { Experience } from '@/types';
+
+const experiences: Experience[] = [
   {
     num: '01',
     company: 'ZooMinder',

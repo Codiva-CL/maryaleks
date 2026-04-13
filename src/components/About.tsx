@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function About() {
   return (
     <section className="about section" id="about">
@@ -7,7 +9,7 @@ export default function About() {
         <div className="about-portrait-row reveal reveal-delay-1">
           <div className="about-portrait">
             <div className="about-portrait-frame">
-              <img src="/profile.jpg" alt="Marina Alekseeva" className="about-portrait-img" />
+              <Image src="/profile.jpg" alt="Marina Alekseeva" width={400} height={500} className="about-portrait-img" />
             </div>
             <span className="about-portrait-caption">Marina Alekseeva &mdash; Santiago, Chile</span>
           </div>

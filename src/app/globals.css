@@ -15,8 +15,8 @@
   --color-border: rgba(26, 26, 26, 0.15);
   --color-white: #ffffff;
 
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'Cormorant Garamond', 'Georgia', serif;
+  --font-display: var(--font-syne), sans-serif;
+  --font-body: var(--font-cormorant), 'Georgia', serif;
 
   --space-2xs: clamp(4px, 0.5vw, 8px);
   --space-xs: clamp(8px, 1vw, 16px);

@@ -1,15 +1,18 @@
+import { PERSON, SOCIAL } from '@/constants/site';
+import type { ContactLink } from '@/types';
+
 const ArrowIcon = () => (
   <svg className="contact-link-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
     <path d="M4 16L16 4M16 4H6M16 4V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
-const links = [
-  { label: 'Email', value: 'marinaaleksdev@gmail.com', href: 'mailto:marinaaleksdev@gmail.com' },
-  { label: 'LinkedIn', value: 'Marina Alekseeva', href: 'https://www.linkedin.com/in/marina-alekseeva-a190591b5/', external: true },
-  { label: 'Telegram', value: '@KorryKo', href: 'https://t.me/KorryKo', external: true },
-  { label: 'Github', value: 'KorryKo', href: 'https://github.com/KorryKo', external: true },
-  { label: 'Phone', value: '+56 957 776 767', href: 'tel:+56957776767' },
+const links: ContactLink[] = [
+  { label: 'Email', value: PERSON.email, href: `mailto:${PERSON.email}` },
+  { label: 'LinkedIn', value: PERSON.name, href: SOCIAL.linkedin, external: true },
+  { label: 'Telegram', value: '@KorryKo', href: SOCIAL.telegram, external: true },
+  { label: 'Github', value: 'KorryKo', href: SOCIAL.github, external: true },
+  { label: 'Phone', value: PERSON.phoneFormatted, href: `tel:${PERSON.phone}` },
 ];
 
 export default function Contact() {

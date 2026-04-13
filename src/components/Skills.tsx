@@ -1,4 +1,6 @@
-const skillGroups = [
+import type { SkillGroup } from '@/types';
+
+const skillGroups: SkillGroup[] = [
   {
     title: 'Frameworks & Libraries',
     skills: ['React', 'Next.js', 'Angular', 'Vue', 'Svelte', 'Astro', 'Redux', 'Express'],

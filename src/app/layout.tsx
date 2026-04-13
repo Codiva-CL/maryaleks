@@ -1,8 +1,24 @@
 import type { Metadata } from 'next';
+import { Syne, Cormorant_Garamond } from 'next/font/google';
 import ScrollReveal from '@/components/ScrollReveal';
+import { SITE_URL, PERSON, SOCIAL } from '@/constants/site';
 import './globals.css';
 
-const siteUrl = 'https://maryaleks.dev';
+const syne = Syne({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-syne',
+  display: 'swap',
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
+  display: 'swap',
+});
+
 const title = 'Marina Alekseeva — Front-End Developer | React, Next.js, Angular, Vue';
 const description =
   'Front-End Developer with 4+ years of experience in React, Next.js, Angular, Vue, and TypeScript. Based in Santiago, Chile. Open to work.';
@@ -10,7 +26,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: '/',
   },
@@ -27,12 +43,12 @@ export const metadata: Metadata = {
     'Web Developer',
     'Marina Alekseeva',
   ],
-  authors: [{ name: 'Marina Alekseeva', url: siteUrl }],
+  authors: [{ name: 'Marina Alekseeva', url: SITE_URL }],
   creator: 'Marina Alekseeva',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteUrl,
+    url: SITE_URL,
     siteName: 'Marina Alekseeva — Portfolio',
     title,
     description,
@@ -67,33 +83,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'ProfilePage',
     mainEntity: {
       '@type': 'Person',
-      name: 'Marina Alekseeva',
-      jobTitle: 'Front-End Developer',
-      url: siteUrl,
-      email: 'marinaaleksdev@gmail.com',
-      telephone: '+56957776767',
-      image: `${siteUrl}/profile.jpg`,
+      name: PERSON.name,
+      jobTitle: PERSON.jobTitle,
+      url: SITE_URL,
+      email: PERSON.email,
+      telephone: PERSON.phone,
+      image: `${SITE_URL}${PERSON.image}`,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Santiago',
-        addressCountry: 'CL',
+        addressLocality: PERSON.location.city,
+        addressCountry: PERSON.location.country,
       },
-      knowsLanguage: [
-        { '@type': 'Language', name: 'Russian', alternateName: 'ru' },
-        { '@type': 'Language', name: 'English', alternateName: 'en' },
-        { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
-      ],
+      knowsLanguage: PERSON.languages.map(l => ({
+        '@type': 'Language' as const,
+        name: l.name,
+        alternateName: l.code,
+      })),
       knowsAbout: [
         'React', 'Next.js', 'Angular', 'Vue', 'Svelte', 'Astro',
         'JavaScript', 'TypeScript', 'Go', 'HTML', 'CSS', 'Dart',
         'Redux', 'Express', 'Docker', 'AWS Lambda', 'Supabase',
         'Jest', 'Playwright', 'Git', 'Linux',
       ],
-      sameAs: [
-        'https://github.com/KorryKo',
-        'https://www.linkedin.com/in/marina-alekseeva-a190591b5/',
-        'https://t.me/KorryKo',
-      ],
+      sameAs: [SOCIAL.github, SOCIAL.linkedin, SOCIAL.telegram],
       worksFor: {
         '@type': 'Organization',
         name: 'ZooMinder',
@@ -102,14 +114,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${syne.variable} ${cormorant.variable}`} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Syne:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,25 +1,16 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 export default function ScrollReveal() {
-  useEffect(() => {
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    revealElements.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
+  const onReveal = useCallback((entry: IntersectionObserverEntry) => {
+    entry.target.classList.add('visible');
   }, []);
+
+  const options = useMemo(() => ({ threshold: 0.1, rootMargin: '0px 0px -50px 0px' }), []);
+
+  useIntersectionObserver('.reveal', onReveal, options);
 
   return null;
 }

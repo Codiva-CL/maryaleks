@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const sections = ['about', 'experience', 'skills', 'contact'] as const;
 
@@ -15,20 +16,17 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const els = document.querySelectorAll('.section[id]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) setActiveSection(entry.target.id);
-      });
-    }, { rootMargin: '-40% 0px -60% 0px' });
-
-    els.forEach(s => observer.observe(s));
-    return () => observer.disconnect();
+  const onSectionVisible = useCallback((entry: IntersectionObserverEntry) => {
+    setActiveSection(entry.target.id);
   }, []);
+
+  const sectionOptions = useMemo(() => ({ rootMargin: '-40% 0px -60% 0px' }), []);
+
+  useIntersectionObserver('.section[id]', onSectionVisible, sectionOptions);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
